@@ -6,7 +6,7 @@ import { clicksAtom } from '@/contexts/atoms/clicks'
 import { v4 as uuid } from 'uuid'
 import Draw from '@/components/Draw'
 import { clicksHistoryAtom } from '@/contexts/atoms/clicksClone'
-import { ClickCords, ClicksAtomI, FindNextClickByIdI } from '@/types'
+import { FindNextClickByIdI } from '@/types'
 
 export default function HomePage() {
   const windowRef = useRef<HTMLDivElement | null>(null)
@@ -81,11 +81,16 @@ export default function HomePage() {
   return (
     <div
       ref={windowRef}
-      className='w-full h-screen bg-neutral-950 relative'
+      className='w-screen h-screen bg-neutral-950 relative'
       onClick={(e: MouseEvent) => handleWindowClick(e)}
       onKeyDown={(e: KeyboardEvent) => handleWindowKeypress(e)}
       tabIndex={0}
     >
+      <div className='w-fit h-fit absolute bg-neutral-800 p-2 px-3 m-6 my-8 text-zinc-300 rounded-lg flex flex-col items-center'>
+        <span>Ctrl + Z: backward</span>
+        <div className='my-3 w-[90%] h-[1px] bg-neutral-700 m-auto'></div>
+        <span>Ctrl + Shift + Z: foward</span>
+      </div>
       {clicks.map((click) => {
         return <Draw key={uuid()} cords={click} />
       })}
