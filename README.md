@@ -1,4 +1,4 @@
-# React Junior job interview Question ✔️
+# Save user action history in React States
 
 I saw several youtubers commenting on this challenge and this is a great example of a React challenge for junior job interviews. So here is my resolution.
 Purpose: saves the history of actions that a user performs within the page.
